@@ -10,7 +10,7 @@ The tool uses the following NuGet Packages, please install them first:
 
 You should use FB_BIP only on a secure computer that has no access to the Internet. Once the mnemonic words has been generated, write them down and keep them in a safe place (never online!). FB_BIP should then be used to generate a new address for each transaction (not for security but to increase privacy). The private keys do not need to be stored as they can be retrieved later.
 
-NEVER LOSE THE MNEMONIC WORDS - OTHERWISE YOU WON'T BE ABLE TO GET ACCESS TO YOUR COINS ANYMORE!
+NEVER LOSE THE MNEMONIC WORDS – OTHERWISE YOU WON'T BE ABLE TO GET ACCESS TO YOUR COINS ANYMORE!
 
 ## Useful links
 An online Mnemonic Code Converter including more coins is available under the following link: https://iancoleman.io/bip39/
