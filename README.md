@@ -1,7 +1,7 @@
 # FB_BIP44
 
 ## What is FB_BIP44?
-FB_BIP44 is a C# WPF implementation to generate [[https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki|BIP-32]] / [https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki BIP-39] / [https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki BIP-44] compliant wallets for Bitcoin (BTC) and Ethereum (ETH).
+FB_BIP44 is a C# WPF implementation to generate [BIP-32] (https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) / [https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki BIP-39] / [https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki BIP-44] compliant wallets for Bitcoin (BTC) and Ethereum (ETH).
 
 ## How to use?
 The tool uses the following NuGet Packages, please install them first:
