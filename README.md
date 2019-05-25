@@ -8,7 +8,7 @@ The tool uses the following NuGet Packages, please install them first:
 - [NBitcoin](https://github.com/MetacoSA/NBitcoin)
 - [Nethereum.HDWallet](https://github.com/Nethereum/Nethereum)
 
-You should use FB_BIP only on a secure computer that has no access to the Internet. Once the mnemonic words has been generated, write them down and keep them in a safe place (never online!). FB_BIP should then be used to generate a new address for each transaction (not for security but to increase privacy). The private keys do not need to be stored as they can be retrieved later.
+You should use FB_BIP only on a secure computer without access to the Internet. Once the mnemonic words has been generated, write them down and keep them in a safe place (never online!). FB_BIP should then be used to generate a new address for each transaction (not for security reasons but to increase privacy). The private keys do not need to be stored as they can be retrieved later.
 
 NEVER LOSE THE MNEMONIC WORDS – OTHERWISE YOU WON'T BE ABLE TO GET ACCESS TO YOUR COINS ANYMORE!
 
