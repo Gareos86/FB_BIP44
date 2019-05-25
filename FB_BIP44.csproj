@@ -137,7 +137,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="StartWindow.xaml.cs">
+      <DependentUpon>StartWindow.xaml</DependentUpon>
+    </Compile>
     <Page Include="EnterMnemonic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GeneratePublicKeys.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -152,10 +159,17 @@
     <Compile Include="EnterMnemonic.xaml.cs">
       <DependentUpon>EnterMnemonic.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GeneratePublicKeys.xaml.cs">
+      <DependentUpon>GeneratePublicKeys.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GenerateWallets.xaml.cs">
       <DependentUpon>GenerateWallets.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="StartWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

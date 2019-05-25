@@ -1,0 +1,53 @@
+﻿<Window x:Class="FB_BIP44.StartWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FB_BIP44"
+        mc:Ignorable="d"
+        Title="StartWindow" Height="525" Width="800" Left="100" Top="100">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="45"/>
+            <ColumnDefinition Width="45"/>
+            <ColumnDefinition Width="125"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width=".5*"/>
+            <ColumnDefinition Width=".1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        <Label Content="fb:" FontWeight="Bold" Foreground="CornflowerBlue" FontSize="18" Margin="10,10,0,0" FontFamily="Consolas"/>
+        <Label Content="Generate BIP-32 / BIP-39 / BIP-44 compliant HD wallets" FontWeight="Bold" Foreground="RoyalBlue" Grid.Column="1" Grid.ColumnSpan="4" FontSize="18" Margin="0,10,0,0" FontFamily="Consolas"/>
+        <Label Content="Please choose between the two applications:" Foreground="Brown" VerticalAlignment="Center"  Grid.Row="1" Grid.ColumnSpan="4" Margin="10,0,0,0" FontFamily="Consolas"/>
+        <Label Content="Application #1" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="3" FontFamily="Consolas"/>
+        <Label Content="Application #2" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="4" FontFamily="Consolas"/>
+        <Label Content="Purpose" Grid.Row="4" Grid.ColumnSpan="3" HorizontalAlignment="Right" FontSize="12" Margin="5,5,5,5" FontFamily="Consolas"/>
+        <Label Grid.Row="4" Grid.Column="3" Margin="5,5,5,5" FontFamily="Consolas">
+            <TextBlock TextWrapping="WrapWithOverflow">This application is designed to generate addresses based on BIP32 Extended Public Keys (e.g. created with application #2) without the need of a private key. The corresponding private keys are never exposed, i.e. the use of this application is also available in an insecure environment. Since FB_BIP44 supports HD Wallet structures, the Private Keys can be created later with application #2.</TextBlock>
+        </Label>
+        <Label Grid.Row="4" Grid.Column="4" Margin="5,5,5,5" FontFamily="Consolas">
+            <TextBlock TextWrapping="WrapWithOverflow">Application #2 generates BIP-32 / BIP-39 / BIP-44 compliant wallets. This application is also capable of creating private keys for addresses generated under application #1.</TextBlock>
+        </Label>
+        <Label Content="Important" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Right" FontSize="12" Margin="5,5,5,5" FontFamily="Consolas"/>
+        <Label Foreground="Red" Grid.Row="5" Grid.Column="4" Margin="5,5,5,5" FontFamily="Consolas">
+            <TextBlock TextWrapping="WrapWithOverflow">Don't use it on a unsecure computer with access to the Internet!</TextBlock>
+        </Label>
+        <Label Content="Limitations" Grid.Row="6" Grid.ColumnSpan="3" HorizontalAlignment="Right" FontSize="12" Margin="5,5,5,5" FontFamily="Consolas"/>
+        <Label Grid.Row="6" Grid.Column="3" Margin="5,5,5,5" FontFamily="Consolas">
+            <TextBlock TextWrapping="WrapWithOverflow">Supports only BTC right now.</TextBlock>
+        </Label>
+        <Button x:Name="btnGeneratePulicKeys" Content="Generate Public Keys" Grid.Row="3" Grid.Column="3" FontSize="12" Margin="5,5,5,5" FontFamily="Consolas" Click="btnGeneratePulicKeys_Click"/>
+        <Button x:Name="btnGenerateWallets" Content="Generate Wallets" Grid.Row="3" Grid.Column="4" FontSize="12" Margin="5,5,5,5" FontFamily="Consolas" Click="btnGenerateWallets_Click"/>
+    </Grid>
+</Window>

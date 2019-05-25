@@ -40,11 +40,11 @@ namespace FB_BIP44
             return wordList;
         }
     }
-    public partial class MainWindow : Window
+    public partial class GenerateWallets : Window
     {
         public Wordlist wordList;
 
-        public MainWindow()
+        public GenerateWallets()
         {
             InitializeComponent();
 
@@ -112,6 +112,9 @@ namespace FB_BIP44
                     txtPublicKey.Text = Convert.ToString(pubKey.PubKey.ScriptPubKey).Substring(0, 66);
                     txtExtPublicKey.Text = pubKey.ToString(Network.Main);
                     txtPrivateKey.Text = key.PrivateKey.ToString(Network.Main);
+                    ExtKey key32 = hdRoot.Derive(new NBitcoin.KeyPath("m/44'/0'/" + cboAccount.SelectedValue + "'/" + Convert.ToString(cboType.SelectedValue).Substring(0, 1)));
+                    ExtPubKey pubKey32 = key32.Neuter();
+                    txt32ExtPublicKey.Text = pubKey32.ToString(Network.Main);
                     break;
 
                 case "ETH - Ethereum":
@@ -185,6 +188,11 @@ namespace FB_BIP44
                     break;
                 }
             }
+        }
+
+        private void btnCopy32ExtPublicKey_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(txt32ExtPublicKey.Text);
         }
     }
 }
