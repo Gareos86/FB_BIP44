@@ -8,6 +8,8 @@ The tool uses the following NuGet Packages, please install them first:
 - [NBitcoin](https://github.com/MetacoSA/NBitcoin)
 - [Nethereum.HDWallet](https://github.com/Nethereum/Nethereum)
 
+You should use FB_BIP only on a secure computer that has no access to the Internet. Once the mnemonic words has been generated, write them down and keep them in a safe place (never online!). FB_BIP should then be used to generate a new address for each transaction. The private keys should not be stored as they can be retrieved later.
+
 ## Useful links
 An online Mnemonic Code Converter including more coins is available under the following link: https://iancoleman.io/bip39/
 
