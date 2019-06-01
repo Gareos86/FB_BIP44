@@ -57,9 +57,10 @@ namespace FB_BIP44
             cboLanguage.Items.Add("Spanish");
             cboLanguage.SelectedValue = "English";
 
-            cboCoin.Items.Add("BTC - Bitcoin");
-            cboCoin.Items.Add("ETH - Ethereum");
-            cboCoin.SelectedValue = "BTC - Bitcoin";
+            cboCoin.Items.Add("BTC - Bitcoin (BIP-44)");
+            cboCoin.Items.Add("ETH - Ethereum (BIP-44)");
+            cboCoin.Items.Add("BTC - Bitcoin (BIP-49)");
+            cboCoin.SelectedValue = "BTC - Bitcoin (BIP-44)";
 
             cboType.Items.Add("0 - Receiving");
             cboType.Items.Add("1 - Change");
@@ -97,6 +98,8 @@ namespace FB_BIP44
             wordList = functions.SelectedLanguage(cboLanguage.SelectedValue.ToString());
             Mnemonic mnemo = new Mnemonic(txtMnemonic.Text, wordlist: wordList);
             ExtKey hdRoot = new ExtKey();
+            ExtKey key32;
+            ExtPubKey pubKey32;
             hdRoot = mnemo.DeriveExtKey(txtPasswort.Text);
             txtRoot.Text = hdRoot.ToString(Network.Main);
 
@@ -105,25 +108,37 @@ namespace FB_BIP44
 
             switch(cboCoin.SelectedValue)
             {
-                case "BTC - Bitcoin":
-                    ExtKey key = hdRoot.Derive(new NBitcoin.KeyPath("m/44'/0'/" + cboAccount.SelectedValue + "'/" + Convert.ToString(cboType.SelectedValue).Substring(0, 1) + "/" + cboIndex.SelectedValue));
-                    ExtPubKey pubKey = key.Neuter();
-                    txtAddress.Text = key.PrivateKey.PubKey.ToString(Network.Main);
-                    txtPublicKey.Text = Convert.ToString(pubKey.PubKey.ScriptPubKey).Substring(0, 66);
-                    txtExtPublicKey.Text = pubKey.ToString(Network.Main);
-                    txtPrivateKey.Text = key.PrivateKey.ToString(Network.Main);
-                    ExtKey key32 = hdRoot.Derive(new NBitcoin.KeyPath("m/44'/0'/" + cboAccount.SelectedValue + "'/" + Convert.ToString(cboType.SelectedValue).Substring(0, 1)));
-                    ExtPubKey pubKey32 = key32.Neuter();
+                case "BTC - Bitcoin (BIP-44)":
+                    ExtKey key44 = hdRoot.Derive(new NBitcoin.KeyPath("m/44'/0'/" + cboAccount.SelectedValue + "'/" + Convert.ToString(cboType.SelectedValue).Substring(0, 1) + "/" + cboIndex.SelectedValue));
+                    ExtPubKey pubKey44 = key44.Neuter();
+                    txtAddress.Text = key44.PrivateKey.PubKey.ToString(Network.Main);
+                    txtPublicKey.Text = Convert.ToString(pubKey44.PubKey.ScriptPubKey).Substring(0, 66);
+                    txtExtPublicKey.Text = pubKey44.ToString(Network.Main);
+                    txtPrivateKey.Text = key44.PrivateKey.ToString(Network.Main);
+                    key32 = hdRoot.Derive(new NBitcoin.KeyPath("m/44'/0'/" + cboAccount.SelectedValue + "'/" + Convert.ToString(cboType.SelectedValue).Substring(0, 1)));
+                    pubKey32 = key32.Neuter();
                     txt32ExtPublicKey.Text = pubKey32.ToString(Network.Main);
                     break;
 
-                case "ETH - Ethereum":
+                case "ETH - Ethereum (BIP-44)":
                     int index = Convert.ToInt32(cboIndex.SelectedValue);
                     var account = wallet.GetAccount(index);
                     txtAddress.Text = account.Address;
                     txtPublicKey.Text = "";
                     txtExtPublicKey.Text = "";
                     txtPrivateKey.Text = account.PrivateKey;
+                    break;
+
+                case "BTC - Bitcoin (BIP-49)":
+                    ExtKey key49 = hdRoot.Derive(new NBitcoin.KeyPath("m/49'/0'/" + cboAccount.SelectedValue + "'/" + Convert.ToString(cboType.SelectedValue).Substring(0, 1) + "/" + cboIndex.SelectedValue));
+                    ExtPubKey pubKey49 = key49.Neuter();
+                    txtAddress.Text = key49.PrivateKey.PubKey.WitHash.GetAddress(Network.Main).GetScriptAddress().ToString();
+                    txtPublicKey.Text = Convert.ToString(pubKey49.PubKey.ScriptPubKey).Substring(0, 66);
+                    txtExtPublicKey.Text = pubKey49.ToString(Network.Main);
+                    txtPrivateKey.Text = key49.PrivateKey.ToString(Network.Main);
+                    key32 = hdRoot.Derive(new NBitcoin.KeyPath("m/49'/0'/" + cboAccount.SelectedValue + "'/" + Convert.ToString(cboType.SelectedValue).Substring(0, 1)));
+                    pubKey32 = key32.Neuter();
+                    txt32ExtPublicKey.Text = pubKey32.ToString(Network.Main);
                     break;
             }
         }

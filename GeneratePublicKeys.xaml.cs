@@ -26,8 +26,9 @@ namespace FB_BIP44
         {
             InitializeComponent();
 
-            cboCoin.Items.Add("BTC - Bitcoin");
-            cboCoin.SelectedValue = "BTC - Bitcoin";
+            cboCoin.Items.Add("BTC - Bitcoin (BIP-44)");
+            cboCoin.Items.Add("BTC - Bitcoin (BIP-49)");
+            cboCoin.SelectedValue = "BTC - Bitcoin (BIP-44)";
 
 
             for (int i = 0; i < 100; i++)
@@ -45,15 +46,23 @@ namespace FB_BIP44
 
         private void btnCalculate_Click(object sender, RoutedEventArgs e)
         {
-            //var wallet = new Wallet(txtMnemonic.Text, txtPasswort.Text);
+            BitcoinExtPubKey bitcoinExtPubKey;
+            ExtPubKey extPubKey;
 
             switch (cboCoin.SelectedValue)
             {
-                case "BTC - Bitcoin":
-                    BitcoinExtPubKey bitcoinExtPubKey = new BitcoinExtPubKey(txtInput.Text, Network.Main);
-                    ExtPubKey extPubKey = new ExtPubKey(bitcoinExtPubKey.ToBytes());
+                case "BTC - Bitcoin (BIP-44)":
+                    bitcoinExtPubKey = new BitcoinExtPubKey(txtInput.Text, Network.Main);
+                    extPubKey = new ExtPubKey(bitcoinExtPubKey.ToBytes());
                     txtAddress.Text = extPubKey.Derive(Convert.ToUInt32(cboIndex.SelectedValue)).PubKey.ToString(Network.Main);
                     break;
+
+                case "BTC - Bitcoin (BIP-49)":
+                    bitcoinExtPubKey = new BitcoinExtPubKey(txtInput.Text, Network.Main);
+                    extPubKey = new ExtPubKey(bitcoinExtPubKey.ToBytes());
+                    txtAddress.Text = extPubKey.Derive(Convert.ToUInt32(cboIndex.SelectedValue)).PubKey.WitHash.GetAddress(Network.Main).GetScriptAddress().ToString();
+                    break;
+
             }
         }
 

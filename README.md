@@ -1,7 +1,7 @@
-# FB_BIP44
+﻿# FB_BIP44
 
 ## What is FB_BIP44?
-FB_BIP44 is a C# WPF implementation to generate [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) / [BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) / [BIP-44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) compliant wallets for Bitcoin (BTC) and Ethereum (ETH).
+FB_BIP44 is a C# WPF implementation to generate [BIP-32](https://github.com/bitcoin/bips/blob/master/bip-0032.mediawiki) / [BIP-39](https://github.com/bitcoin/bips/blob/master/bip-0039.mediawiki) / [BIP-44](https://github.com/bitcoin/bips/blob/master/bip-0044.mediawiki) / [BIP-49](https://github.com/bitcoin/bips/blob/master/bip-0049.mediawiki) compliant wallets for Bitcoin (BTC) and Ethereum (ETH).
 
 ## Background
 So called hierarchical deterministic wallets (or HD Wallets) are one way to manage wallets for crypto currencies (for a comprehensive overview of options see e.g. [Storing bitcoins](https://en.bitcoin.it/wiki/Storing_bitcoins)). They are particularly suitable because the mnemonic words or the seed can be stored offline, e.g. on paper or an even more secure method. They also protect privacy because a new address can be generated for each transaction without increasing the risk of loss (all addresses can be retrieved with the same seed). In a nutshell: One of the most secure forms of storing your own crypto currencies.

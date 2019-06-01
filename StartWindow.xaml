@@ -28,7 +28,7 @@
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
         <Label Content="fb:" FontWeight="Bold" Foreground="CornflowerBlue" FontSize="18" Margin="10,10,0,0" FontFamily="Consolas"/>
-        <Label Content="Generate BIP-32 / BIP-39 / BIP-44 compliant HD wallets" FontWeight="Bold" Foreground="RoyalBlue" Grid.Column="1" Grid.ColumnSpan="4" FontSize="18" Margin="0,10,0,0" FontFamily="Consolas"/>
+        <Label Content="Generate BIP-32 / BIP-39 / BIP-44 / BIP-49 compliant HD wallets" FontWeight="Bold" Foreground="RoyalBlue" Grid.Column="1" Grid.ColumnSpan="4" FontSize="18" Margin="0,10,0,0" FontFamily="Consolas"/>
         <Label Content="Please choose between the two applications:" Foreground="Brown" VerticalAlignment="Center"  Grid.Row="1" Grid.ColumnSpan="4" Margin="10,0,0,0" FontFamily="Consolas"/>
         <Label Content="Application #1" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="3" FontFamily="Consolas"/>
         <Label Content="Application #2" FontWeight="ExtraBold" VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2" Grid.Column="4" FontFamily="Consolas"/>
@@ -37,7 +37,7 @@
             <TextBlock TextWrapping="WrapWithOverflow">This application is designed to generate addresses based on BIP32 Extended Public Keys (e.g. created with application #2) without the need of a private key. The corresponding private keys are never exposed, i.e. the use of this application is also available in an insecure environment. Since FB_BIP44 supports HD Wallet structures, the Private Keys can be created later with application #2.</TextBlock>
         </Label>
         <Label Grid.Row="4" Grid.Column="4" Margin="5,5,5,5" FontFamily="Consolas">
-            <TextBlock TextWrapping="WrapWithOverflow">Application #2 generates BIP-32 / BIP-39 / BIP-44 compliant wallets. This application is also capable of creating private keys for addresses generated under application #1.</TextBlock>
+            <TextBlock TextWrapping="WrapWithOverflow">Application #2 generates BIP-32 / BIP-39 / BIP-44 / BIP-49 compliant wallets. This application is also capable of creating private keys for addresses generated under application #1.</TextBlock>
         </Label>
         <Label Content="Important" Grid.Row="5" Grid.ColumnSpan="3" HorizontalAlignment="Right" FontSize="12" Margin="5,5,5,5" FontFamily="Consolas"/>
         <Label Foreground="Red" Grid.Row="5" Grid.Column="4" Margin="5,5,5,5" FontFamily="Consolas">
